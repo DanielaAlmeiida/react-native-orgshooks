@@ -1,13 +1,32 @@
 import React from 'react';
 import { Text, View, Image, StyleSheet } from 'react-native';
+import { carregaTopo } from '../../../services/carregaDados';
 import logo from '../../../assets/logo.png';
 
-export default function Topo() {
-    return <View style={estilos.topo}>
+class Topo extends React.Component {
+    state = {
+        topo: {
+            boasVindas: '',
+            legenda: 'legenda',
+        }
+    }
+
+    atualizaTopo() {
+        const retorno = carregaTopo();
+        this.setState({ topo: retorno });
+    }
+    componentDidMount() {
+        this.atualizaTopo();
+    }
+
+    render() {
+        return <View style={estilos.topo}>
         <Image source={logo} style={estilos.imagem} />
-            <Text style={estilos.boasVindas}>Olá, Daniela</Text>
-            <Text style={estilos.legenda}>Encontre os melhores produtores</Text>
+            <Text style={estilos.boasVindas}> {this.state.topo.boasVindas} </Text>
+            <Text style={estilos.legenda}> {this.state.topo.legenda} </Text>
         </View>
+    }
+    
 }
 
 const estilos = StyleSheet.create({
@@ -33,3 +52,5 @@ const estilos = StyleSheet.create({
         color: 'black'
     }
 });
+
+export default Topo;
