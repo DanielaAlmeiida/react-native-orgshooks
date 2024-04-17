@@ -1,32 +1,18 @@
 import React from 'react';
-
 import Home from './src/telas/Home'
-
-import type {PropsWithChildren} from 'react';
-
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import { SafeAreaView, StyleSheet } from 'react-native';
 
 
 function App(): React.JSX.Element  {
-  return <SafeAreaView>
-    <Home />
+  return <SafeAreaView style={estilos.tela}>
+      <Home />
     </SafeAreaView>
 }
+
+const estilos = StyleSheet.create({
+  tela: {
+    flex: 1,
+  }
+})
 
 export default App;

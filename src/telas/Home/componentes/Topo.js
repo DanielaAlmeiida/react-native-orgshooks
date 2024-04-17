@@ -43,13 +43,13 @@ const estilos = StyleSheet.create({
         fontSize: 26,
         lineHeight: 42,
         fontWeight: '800',
-        color: 'black'
+        color: '#464646'
 
     },
     legenda: {
         fontSize: 16,
         lineHeight: 26,
-        color: 'black'
+        color: '#A3A3A3'
     }
 });
 
